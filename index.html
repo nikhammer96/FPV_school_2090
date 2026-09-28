@@ -6,26 +6,24 @@
 <title>Кружок FPV-пилотирования — ГБОУ «Школа № 2090»</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;800&family=Oswald:wght@500;600&family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Oswald:wght@500;600&family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0D100A; --ink:#EDF2E4; --mut:#A7B299; --dim:#7E8871;
-  --acc:#CBFF3E; --dark:#10140B; --line:rgba(237,242,228,.16);
+  --bg:#0D100A; --ink:#EDF2E4; --soft:#BCC5AF; --mut:#A7B299; --dim:#7E8871;
+  --acc:#CBFF3E; --dark:#10140B; --line:rgba(237,242,228,.14);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{background:#070806}
 body{font-family:'Golos Text',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
-.ms{font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;font-feature-settings:'liga';font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24}
-.ms.f{font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24}
+.ic{display:block;width:16px;height:16px;flex:none}
 
-/* ---------- сцена и масштабирование листа ---------- */
+/* ---------- сцена предпросмотра ---------- */
 .stage{padding:36px 18px 60px}
 .frame{position:relative;margin:0 auto}
-.scaler{position:absolute;top:0;left:0;width:1123px;height:794px;transform-origin:top left}
+.scaler{position:absolute;top:0;left:0;width:1123px;transform-origin:top left}
 .sheet{width:1123px;height:794px;background:var(--bg);position:relative;overflow:hidden;
-  display:flex;flex-direction:column;padding:38px 52px 36px;
-  box-shadow:0 24px 70px rgba(0,0,0,.55);border:1px solid rgba(237,242,228,.07)}
+  display:flex;flex-direction:column;padding:38px 52px 34px;
+  border:1px solid rgba(237,242,228,.07);box-shadow:0 24px 70px rgba(0,0,0,.55)}
 .sheet>*{position:relative}
 .grid-bg{position:absolute;inset:0;pointer-events:none;
   background-image:linear-gradient(rgba(237,242,228,.05) 1px,transparent 1px),
@@ -33,10 +31,10 @@ body{font-family:'Golos Text',sans-serif;color:var(--ink);-webkit-font-smoothing
   background-size:46px 46px}
 
 /* ---------- шапка ---------- */
-.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;
-  border-bottom:1px dashed rgba(237,242,228,.25);margin-bottom:22px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:14.5px;letter-spacing:.13em}
-.mark{width:23px;height:23px;display:block;flex:none}
+.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;
+  border-bottom:1px dashed rgba(237,242,228,.25);margin-bottom:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:14px;letter-spacing:.12em}
+.mark{width:23px;height:23px;flex:none}
 .top-tags{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;color:var(--mut)}
 
 /* ---------- кикер и заголовок ---------- */
@@ -46,72 +44,80 @@ body{font-family:'Golos Text',sans-serif;color:var(--ink);-webkit-font-smoothing
 .k-line{flex:1;height:1px;background:var(--line)}
 .k-note{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--dim)}
 
-.h1row{display:flex;align-items:flex-end;gap:26px;margin-bottom:26px}
+.h1row{display:flex;align-items:flex-end;gap:24px;margin-bottom:22px}
 h1{white-space:nowrap;line-height:.9;font-weight:400}
-.h-fpv{font-family:'Unbounded';font-weight:800;font-size:80px;letter-spacing:-.02em;color:var(--acc)}
-.h-rest{font-family:'Oswald';font-weight:600;font-size:88px;letter-spacing:.015em;color:var(--ink)}
-.freq{margin-left:auto;border:1px solid rgba(203,255,62,.45);border-radius:9px;padding:9px 14px 8px;text-align:right;flex:none}
-.freq b{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:var(--acc);letter-spacing:.04em}
-.freq i{display:block;font-style:normal;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:var(--mut);margin-top:3px}
+.h-fpv{font-family:'Unbounded';font-weight:800;font-size:76px;letter-spacing:-.01em;color:var(--acc)}
+.h-rest{font-family:'Oswald';font-weight:600;font-size:82px;letter-spacing:.02em;color:var(--ink)}
+.freq{margin-left:auto;flex:none;border:1px solid rgba(203,255,62,.45);border-radius:9px;padding:8px 13px;text-align:right}
+.freq b{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13.5px;color:var(--acc)}
+.freq i{display:block;font-style:normal;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:var(--dim);margin-top:3px}
 
 /* ---------- основной блок ---------- */
-.main{flex:1;min-height:0;display:flex;gap:40px;margin-bottom:20px}
+.main{flex:1;min-height:0;display:flex;gap:36px;margin-bottom:18px}
 .left{flex:1.22;min-width:0;display:flex;flex-direction:column}
 .right{flex:1;min-width:0;display:flex}
 
-.sec-head{display:flex;align-items:center;gap:14px}
-.sec-head>span:first-child{font-family:'Unbounded';font-weight:600;font-size:12px;letter-spacing:.18em;white-space:nowrap}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.sec-head>span:first-child{font-family:'Unbounded';font-weight:600;font-size:11.5px;letter-spacing:.18em;white-space:nowrap}
 .sec-head .line{flex:1;height:1px;background:var(--line)}
-.sh-note{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--dim);white-space:nowrap}
+.sh-note{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--dim);white-space:nowrap}
 
-.points{list-style:none;margin-top:4px}
-.points li{display:flex;align-items:flex-start;gap:14px;padding:12.5px 0}
+.points{list-style:none}
+.points li{display:flex;align-items:flex-start;gap:14px;padding:11px 0}
 .points li+li{border-top:1px solid var(--line)}
 .chk{flex:none;width:27px;height:27px;border:1.5px solid var(--acc);border-radius:8px;
   display:flex;align-items:center;justify-content:center;margin-top:1px}
-.chk .ms{font-size:17px;color:var(--acc)}
-.points p{font-size:15px;line-height:1.45;color:#BCC5AF;flex:1;padding-top:2px}
+.chk .ic{width:15px;height:15px;color:var(--acc)}
+.points p{flex:1;font-size:14.5px;line-height:1.45;color:var(--soft);padding-top:3px}
 .points b{color:var(--ink);font-weight:700}
-.points .num{flex:none;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(203,255,62,.55);padding-top:6px;letter-spacing:.08em}
+.num{flex:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;
+  color:rgba(203,255,62,.55);padding-top:6px}
 
-.race{margin-top:auto;display:flex;gap:13px;align-items:center;background:var(--acc);color:#141A0C;border-radius:12px;padding:13px 16px}
-.race .ms{font-size:26px;flex:none}
-.race p{font-size:14.5px;line-height:1.42;font-weight:500}
+.race{margin-top:auto;display:flex;gap:12px;align-items:center;background:var(--acc);color:#141A0C;border-radius:12px;padding:12px 15px}
+.race .ic{width:24px;height:24px;color:#141A0C}
+.race p{font-size:13.5px;line-height:1.4;font-weight:500}
 .race b{font-weight:800}
 
 /* ---------- сцена с дроном ---------- */
-.scene{flex:1;display:flex;align-items:stretch;gap:14px;min-width:0}
-.tl,.tr{flex:none;width:60px;display:flex;flex-direction:column;gap:15px;align-self:center}
+.scene{flex:1;display:flex;gap:14px;align-items:center;min-width:0}
+.tl,.tr{flex:none;width:58px;display:flex;flex-direction:column;gap:16px;align-self:center}
 .tr{text-align:right}
 .ti em{display:block;font-style:normal;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:var(--dim);margin-bottom:2px}
-.ti b{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px;color:var(--ink);white-space:nowrap}
-.drone-box{flex:1;position:relative;min-width:0;display:flex}
+.ti b{display:block;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12.5px;color:var(--ink);white-space:nowrap}
+.drone-box{flex:1;align-self:stretch;min-width:0;display:flex}
 #droneSvg{width:100%;height:100%;display:block}
 
-.prop{transform-box:view-box;animation:spin .14s linear infinite}
-.prop.ccw{animation-duration:.18s;animation-direction:reverse}
+.prop{transform-box:view-box;animation:spin .16s linear infinite}
+.prop.ccw{animation-duration:.21s;animation-direction:reverse}
 .sweep{transform-box:view-box;transform-origin:210px 210px;animation:spin 6.5s linear infinite}
 #droneG{transform-box:view-box;transform-origin:210px 210px;animation:hover 5.6s ease-in-out infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes hover{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1.1deg)}}
+@keyframes hover{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-8px) rotate(.6deg)}}
 
-/* ---------- расписание ---------- */
-.sched .sec-head{margin-bottom:10px}
-.t-head,.t-row{display:grid;grid-template-columns:1.15fr .95fr 1.05fr 1.1fr;gap:16px;align-items:center}
-.t-head{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--dim);
+/* ---------- расписание (теперь 5 колонок) ---------- */
+.sched .sec-head{margin-bottom:8px}
+.t-head,.t-row{display:grid;grid-template-columns:1.15fr .72fr 1fr 1.02fr 1.5fr;gap:14px;align-items:center}
+.t-head{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--dim);
   padding-bottom:8px;border-bottom:1px solid rgba(237,242,228,.3)}
-.t-row{padding:10.5px 0;border-bottom:1px solid var(--line);transition:background .2s}
+.t-row{padding:11px 0;border-bottom:1px solid var(--line)}
 .t-row:last-child{border-bottom:0}
-.t-row:hover{background:rgba(237,242,228,.035)}
-.c-g{display:flex;align-items:center;font-weight:700;font-size:16.5px}
-.ch{font-style:normal;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:9.5px;letter-spacing:.1em;
-  color:var(--acc);border:1px solid rgba(203,255,62,.55);border-radius:5px;padding:2.5px 7px;margin-right:12px}
-.c-d{font-weight:700;font-size:16.5px}
-.c-t{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:16.5px;color:var(--acc);letter-spacing:.02em}
-.c-p{display:flex;align-items:center;gap:9px;font-weight:600;font-size:16.5px}
-.c-p .ms{font-size:17px;color:var(--dim)}
 
-/* ---------- появление (только экран) ---------- */
+.c-g{display:flex;align-items:center;font-weight:700;font-size:16px}
+.ch{font-style:normal;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:9px;letter-spacing:.1em;
+  color:var(--acc);border:1px solid rgba(203,255,62,.5);border-radius:5px;padding:2.5px 6px;margin-right:11px}
+.c-d{font-weight:700;font-size:16px}
+.c-t{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:15.5px;color:var(--acc)}
+.c-p{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
+.c-p .ic{width:15px;height:15px;color:var(--dim)}
+
+.c-l{display:inline-flex;align-items:center;gap:7px;width:max-content;max-width:100%;
+  padding:6px 11px;border:1px solid rgba(203,255,62,.4);border-radius:9px;
+  font-family:'JetBrains Mono',monospace;font-weight:500;font-size:10px;color:var(--acc);
+  text-decoration:none;transition:background .2s,border-color .2s}
+.c-l .ic{width:12px;height:12px}
+.c-l:hover{background:rgba(203,255,62,.12);border-color:rgba(203,255,62,.7)}
+
+/* ---------- анимации появления (только экран) ---------- */
 @keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .top{animation:up .5s .05s both}.kicker{animation:up .5s .12s both}
 .h1row{animation:up .55s .18s both}.left{animation:up .55s .26s both}
@@ -121,33 +127,40 @@ h1{white-space:nowrap;line-height:.9;font-weight:400}
 @page{size:A4 landscape;margin:0}
 @media print{
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
-  body{background:var(--bg)}
+  html,body{background:var(--bg)}
   .stage{padding:0}
   .frame{width:auto!important;height:auto!important}
-  .scaler{position:static;width:auto;height:auto;transform:none!important}
-  .sheet{width:297mm;height:209.85mm;border:0;box-shadow:none}
-  .t-row:hover{background:none}
+  .scaler{position:static;width:auto;transform:none!important}
+  .sheet{width:297mm;height:209mm;border:0;box-shadow:none}
 }
 </style>
 </head>
 <body>
 
+<!-- Иконки -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v4.5a4 4 0 0 1-8 0V4Z"/><path d="M8 5.5H5a2.8 2.8 0 0 0 3 3.3M16 5.5h3a2.8 2.8 0 0 1-3 3.3"/><path d="M12 12.5V16M9 19.5h6M10 16h4l.8 3.5H9.2L10 16Z"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9.5 7H17v7.5"/></symbol>
+</svg>
+
 <div class="stage">
   <div class="frame" id="frame">
     <div class="scaler" id="scaler">
-      <div class="sheet" id="sheet">
+      <div class="sheet">
         <div class="grid-bg"></div>
 
         <!-- Шапка -->
         <header class="top">
           <div class="brand">
-            <svg class="mark" viewBox="0 0 24 24" fill="none">
-              <path d="M6.5 6.5 L17.5 17.5 M17.5 6.5 L6.5 17.5" stroke="#CBFF3E" stroke-width="2.4" stroke-linecap="round"/>
-              <circle cx="6" cy="6" r="2.6" stroke="#E9EFDD" stroke-width="1.4"/>
-              <circle cx="18" cy="6" r="2.6" stroke="#E9EFDD" stroke-width="1.4"/>
-              <circle cx="6" cy="18" r="2.6" stroke="#E9EFDD" stroke-width="1.4"/>
-              <circle cx="18" cy="18" r="2.6" stroke="#E9EFDD" stroke-width="1.4"/>
-              <circle cx="12" cy="12" r="2.1" fill="#CBFF3E"/>
+            <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7.2 7.2 16.8 16.8M16.8 7.2 7.2 16.8" stroke="#CBFF3E" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="5.6" cy="5.6" r="2.5" stroke="#EDF2E4" stroke-width="1.4"/>
+              <circle cx="18.4" cy="5.6" r="2.5" stroke="#EDF2E4" stroke-width="1.4"/>
+              <circle cx="5.6" cy="18.4" r="2.5" stroke="#EDF2E4" stroke-width="1.4"/>
+              <circle cx="18.4" cy="18.4" r="2.5" stroke="#EDF2E4" stroke-width="1.4"/>
+              <circle cx="12" cy="12" r="2" fill="#CBFF3E"/>
             </svg>
             <span>ГБОУ «ШКОЛА № 2090»</span>
           </div>
@@ -173,24 +186,24 @@ h1{white-space:nowrap;line-height:.9;font-weight:400}
             <div class="sec-head"><span>НА ЗАНЯТИЯХ ТЫ БУДЕШЬ:</span><span class="line"></span></div>
             <ul class="points">
               <li>
-                <span class="chk"><span class="ms">check</span></span>
-                <p><b>Собирать и настраивать</b> — разберёшься в устройстве квадрокоптера</p>
+                <span class="chk"><svg class="ic"><use href="#i-check"/></svg></span>
+                <p><b>собирать и настраивать</b> — разберёшься в устройстве квадрокоптера;</p>
                 <span class="num">01</span>
               </li>
               <li>
-                <span class="chk"><span class="ms">check</span></span>
-                <p><b>Тренироваться на симуляторе</b> — отточишь навыки в безопасной среде</p>
+                <span class="chk"><svg class="ic"><use href="#i-check"/></svg></span>
+                <p><b>тренироваться на симуляторе</b> — отточишь навыки в безопасной среде;</p>
                 <span class="num">02</span>
               </li>
               <li>
-                <span class="chk"><span class="ms">check</span></span>
-                <p><b>Пилотировать</b> — освоишь управление и отработаешь манёвры на реальном мини-дроне</p>
+                <span class="chk"><svg class="ic"><use href="#i-check"/></svg></span>
+                <p><b>пилотировать</b> — освоишь управление и отработаешь манёвры на реальном мини-дроне.</p>
                 <span class="num">03</span>
               </li>
             </ul>
             <div class="race">
-              <span class="ms f">emoji_events</span>
-              <p>А ещё тебя ждёт участие в <b>соревнованиях</b> и <b>демонстрационном экзамене</b> — отличный шанс показать, чему научился!</p>
+              <svg class="ic"><use href="#i-cup"/></svg>
+              <p>А ещё тебя ждёт участие в <b>соревнованиях</b> и <b>демонстрационном экзамене</b> — отличный шанс показать, чему научился! 🤩</p>
             </div>
           </div>
 
@@ -203,88 +216,71 @@ h1{white-space:nowrap;line-height:.9;font-weight:400}
               </div>
 
               <div class="drone-box">
-                <svg id="droneSvg" viewBox="0 0 420 420" fill="none">
-                  <!-- уголки кадра -->
-                  <path d="M26 54 L26 26 L54 26" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round"/>
-                  <path d="M366 26 L394 26 L394 54" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round"/>
-                  <path d="M394 366 L394 394 L366 394" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round"/>
-                  <path d="M54 394 L26 394 L26 366" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round"/>
-                  <!-- перекрестие -->
-                  <line x1="24" y1="210" x2="396" y2="210" stroke="rgba(237,242,228,.10)"/>
-                  <line x1="210" y1="24" x2="210" y2="396" stroke="rgba(237,242,228,.10)"/>
-                  <!-- прицельное кольцо -->
-                  <circle cx="210" cy="210" r="176" stroke="rgba(237,242,228,.30)" stroke-width="1.2"/>
-                  <circle cx="210" cy="210" r="126" stroke="rgba(237,242,228,.10)"/>
+                <svg id="droneSvg" viewBox="0 0 420 420" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <path d="M26 54V26h28" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M366 26h28v28" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M394 366v28h-28" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M54 394H26v-28" stroke="#CBFF3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="32" y1="210" x2="388" y2="210" stroke="rgba(237,242,228,.1)"/>
+                  <line x1="210" y1="32" x2="210" y2="388" stroke="rgba(237,242,228,.1)"/>
+                  <circle cx="210" cy="210" r="176" stroke="rgba(237,242,228,.28)" stroke-width="1.2"/>
+                  <circle cx="210" cy="210" r="126" stroke="rgba(237,242,228,.1)"/>
                   <g id="ticks"></g>
-                  <!-- сканирующая дуга -->
                   <g class="sweep">
-                    <path d="M145.7 33.3 A188 188 0 0 1 274.3 33.3" stroke="#CBFF3E" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+                    <path d="M210 34 A176 176 0 0 1 354.2 109.1" stroke="#CBFF3E" stroke-width="3" stroke-linecap="round" opacity=".8"/>
                   </g>
-
                   <g id="droneG">
-                    <!-- лучи рамы -->
-                    <g stroke-linecap="round">
-                      <line x1="210" y1="210" x2="132" y2="118" stroke="#CBFF3E" stroke-width="15"/>
-                      <line x1="210" y1="210" x2="288" y2="118" stroke="#CBFF3E" stroke-width="15"/>
-                      <line x1="210" y1="210" x2="132" y2="302" stroke="#CBFF3E" stroke-width="15"/>
-                      <line x1="210" y1="210" x2="288" y2="302" stroke="#CBFF3E" stroke-width="15"/>
-                      <line x1="210" y1="210" x2="132" y2="118" stroke="#10140B" stroke-width="8"/>
-                      <line x1="210" y1="210" x2="288" y2="118" stroke="#10140B" stroke-width="8"/>
-                      <line x1="210" y1="210" x2="132" y2="302" stroke="#10140B" stroke-width="8"/>
-                      <line x1="210" y1="210" x2="288" y2="302" stroke="#10140B" stroke-width="8"/>
+                    <g stroke="#0D100A" stroke-width="17" stroke-linecap="round">
+                      <line x1="210" y1="210" x2="132" y2="118"/><line x1="210" y1="210" x2="288" y2="118"/>
+                      <line x1="210" y1="210" x2="132" y2="302"/><line x1="210" y1="210" x2="288" y2="302"/>
                     </g>
-                    <!-- антенна -->
-                    <path d="M236 164 L264 138" stroke="#E9EFDD" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="267" cy="135" r="4.5" fill="#CBFF3E"/>
-                    <!-- моторы -->
+                    <g stroke="#CBFF3E" stroke-width="11" stroke-linecap="round">
+                      <line x1="210" y1="210" x2="132" y2="118"/><line x1="210" y1="210" x2="288" y2="118"/>
+                      <line x1="210" y1="210" x2="132" y2="302"/><line x1="210" y1="210" x2="288" y2="302"/>
+                    </g>
+                    <line x1="232" y1="186" x2="262" y2="150" stroke="#E9EFDD" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="266" cy="146" r="4.5" fill="#CBFF3E"/>
                     <g fill="#10140B" stroke="#E9EFDD" stroke-width="2">
-                      <circle cx="132" cy="118" r="17"/><circle cx="288" cy="118" r="17"/>
-                      <circle cx="132" cy="302" r="17"/><circle cx="288" cy="302" r="17"/>
+                      <circle cx="132" cy="118" r="15"/><circle cx="288" cy="118" r="15"/>
+                      <circle cx="132" cy="302" r="15"/><circle cx="288" cy="302" r="15"/>
                     </g>
-                    <g fill="#CBFF3E">
-                      <circle cx="132" cy="118" r="6"/><circle cx="288" cy="118" r="6"/>
-                      <circle cx="132" cy="302" r="6"/><circle cx="288" cy="302" r="6"/>
-                    </g>
-                    <!-- пропеллеры -->
                     <g class="prop" style="transform-origin:132px 118px">
-                      <circle cx="132" cy="118" r="44" fill="#CBFF3E" opacity=".07"/>
-                      <path d="M94 102 A41 41 0 0 1 170 102" stroke="#CBFF3E" stroke-width="2" opacity=".45"/>
-                      <ellipse cx="132" cy="118" rx="42" ry="5" fill="#E9EFDD" opacity=".92"/>
+                      <circle cx="132" cy="118" r="42" fill="#CBFF3E" opacity=".06"/>
+                      <ellipse cx="132" cy="118" rx="42" ry="4.5" fill="#E9EFDD" opacity=".9"/>
+                      <ellipse cx="132" cy="118" rx="4.5" ry="42" fill="#E9EFDD" opacity=".3"/>
                       <circle cx="132" cy="118" r="6" fill="#10140B" stroke="#CBFF3E" stroke-width="1.5"/>
                     </g>
-                    <g class="prop" style="transform-origin:288px 118px">
-                      <circle cx="288" cy="118" r="44" fill="#CBFF3E" opacity=".07"/>
-                      <path d="M250 102 A41 41 0 0 1 326 102" stroke="#CBFF3E" stroke-width="2" opacity=".45"/>
-                      <ellipse cx="288" cy="118" rx="42" ry="5" fill="#E9EFDD" opacity=".92"/>
+                    <g class="prop ccw" style="transform-origin:288px 118px">
+                      <circle cx="288" cy="118" r="42" fill="#CBFF3E" opacity=".06"/>
+                      <ellipse cx="288" cy="118" rx="42" ry="4.5" fill="#E9EFDD" opacity=".9"/>
+                      <ellipse cx="288" cy="118" rx="4.5" ry="42" fill="#E9EFDD" opacity=".3"/>
                       <circle cx="288" cy="118" r="6" fill="#10140B" stroke="#CBFF3E" stroke-width="1.5"/>
                     </g>
                     <g class="prop ccw" style="transform-origin:132px 302px">
-                      <circle cx="132" cy="302" r="44" fill="#CBFF3E" opacity=".07"/>
-                      <path d="M94 318 A41 41 0 0 0 170 318" stroke="#CBFF3E" stroke-width="2" opacity=".45"/>
-                      <ellipse cx="132" cy="302" rx="42" ry="5" fill="#E9EFDD" opacity=".92"/>
+                      <circle cx="132" cy="302" r="42" fill="#CBFF3E" opacity=".06"/>
+                      <ellipse cx="132" cy="302" rx="42" ry="4.5" fill="#E9EFDD" opacity=".9"/>
+                      <ellipse cx="132" cy="302" rx="4.5" ry="42" fill="#E9EFDD" opacity=".3"/>
                       <circle cx="132" cy="302" r="6" fill="#10140B" stroke="#CBFF3E" stroke-width="1.5"/>
                     </g>
-                    <g class="prop ccw" style="transform-origin:288px 302px">
-                      <circle cx="288" cy="302" r="44" fill="#CBFF3E" opacity=".07"/>
-                      <path d="M250 318 A41 41 0 0 0 326 318" stroke="#CBFF3E" stroke-width="2" opacity=".45"/>
-                      <ellipse cx="288" cy="302" rx="42" ry="5" fill="#E9EFDD" opacity=".92"/>
+                    <g class="prop" style="transform-origin:288px 302px">
+                      <circle cx="288" cy="302" r="42" fill="#CBFF3E" opacity=".06"/>
+                      <ellipse cx="288" cy="302" rx="42" ry="4.5" fill="#E9EFDD" opacity=".9"/>
+                      <ellipse cx="288" cy="302" rx="4.5" ry="42" fill="#E9EFDD" opacity=".3"/>
                       <circle cx="288" cy="302" r="6" fill="#10140B" stroke="#CBFF3E" stroke-width="1.5"/>
                     </g>
-                    <!-- корпус -->
-                    <path d="M210 138 L220 158 L200 158 Z" fill="#CBFF3E"/>
-                    <rect x="178" y="156" width="64" height="104" rx="16" fill="#151A10" stroke="#E9EFDD" stroke-width="1.6"/>
-                    <rect x="190" y="196" width="40" height="30" rx="6" stroke="rgba(237,242,228,.35)" stroke-width="1.2"/>
-                    <circle cx="210" cy="174" r="12" fill="#10140B" stroke="#E9EFDD" stroke-width="1.6"/>
-                    <circle cx="210" cy="174" r="5.5" fill="#CBFF3E"/>
-                    <circle cx="207.6" cy="171.6" r="1.6" fill="#EDF2E8"/>
-                    <rect x="202" y="250" width="16" height="6" rx="3" fill="#CBFF3E"/>
+                    <rect x="178" y="184" width="64" height="52" rx="13" fill="#151A10" stroke="#E9EFDD" stroke-width="1.6"/>
+                    <circle cx="210" cy="196" r="11" fill="#10140B" stroke="#E9EFDD" stroke-width="1.6"/>
+                    <circle cx="210" cy="196" r="5" fill="#CBFF3E"/>
+                    <circle cx="207.8" cy="193.8" r="1.5" fill="#EDF2E4"/>
+                    <circle cx="194" cy="222" r="3" fill="#CBFF3E"/>
+                    <circle cx="226" cy="222" r="3" fill="#CBFF3E" opacity=".4"/>
                   </g>
                 </svg>
               </div>
 
               <div class="tr">
                 <div class="ti"><em>SPD</em><b id="vSpd">84 KM/H</b></div>
-                <div class="ti"><em>RSSI</em><b id="vRssi">99 %</b></div>
+                <div class="ti"><em>RSSI</em><b id="vRssi">-52 DB</b></div>
                 <div class="ti"><em>PWR</em><b id="vPwr">250 MW</b></div>
               </div>
             </div>
@@ -292,28 +288,43 @@ h1{white-space:nowrap;line-height:.9;font-weight:400}
         </div>
 
         <!-- Расписание -->
-        <div class="sched">
-          <div class="sec-head"><span>РАСПИСАНИЕ ЗАНЯТИЙ</span><span class="line"></span><span class="sh-note">3 ГРУППЫ</span></div>
-          <div class="t-head"><span>ГРУППА</span><span>ДЕНЬ</span><span>ВРЕМЯ</span><span>ПЕДАГОГ</span></div>
+        <section class="sched">
+          <div class="sec-head">
+            <span>РАСПИСАНИЕ ЗАНЯТИЙ</span><span class="line"></span>
+            <span class="sh-note">ЗАПИСЬ ОНЛАЙН&nbsp;·&nbsp;MOS.RU</span>
+          </div>
+          <div class="t-head"><span>ГРУППА</span><span>ДЕНЬ</span><span>ВРЕМЯ</span><span>ПЕДАГОГ</span><span>ССЫЛКА</span></div>
+
           <div class="t-row">
             <span class="c-g"><i class="ch">CH·01</i>Группа 1</span>
             <span class="c-d">Вторник</span>
             <span class="c-t">15:40–17:10</span>
-            <span class="c-p"><span class="ms">person</span>Матяш Т.В.</span>
+            <span class="c-p"><svg class="ic"><use href="#i-person"/></svg>Матяш Т.В.</span>
+            <a class="c-l" href="https://www.mos.ru/pgu2/activity/card/1002675" target="_blank" rel="noopener">
+              <svg class="ic"><use href="#i-out"/></svg><span>mos.ru/pgu2/activity/card/1002675</span>
+            </a>
           </div>
+
           <div class="t-row">
             <span class="c-g"><i class="ch">CH·02</i>Группа 2</span>
             <span class="c-d">Среда</span>
             <span class="c-t">15:40–17:10</span>
-            <span class="c-p"><span class="ms">person</span>Молотков Н.А.</span>
+            <span class="c-p"><svg class="ic"><use href="#i-person"/></svg>Молотков Н.А.</span>
+            <a class="c-l" href="https://www.mos.ru/pgu2/activity/card/1002748" target="_blank" rel="noopener">
+              <svg class="ic"><use href="#i-out"/></svg><span>mos.ru/pgu2/activity/card/1002748</span>
+            </a>
           </div>
+
           <div class="t-row">
             <span class="c-g"><i class="ch">CH·03</i>Группа 3</span>
             <span class="c-d">Четверг</span>
             <span class="c-t">15:40–17:10</span>
-            <span class="c-p"><span class="ms">person</span>Авдеев Н.В.</span>
+            <span class="c-p"><svg class="ic"><use href="#i-person"/></svg>Авдеев Н.В.</span>
+            <a class="c-l" href="https://www.mos.ru/pgu2/activity/card/1002808" target="_blank" rel="noopener">
+              <svg class="ic"><use href="#i-out"/></svg><span>mos.ru/pgu2/activity/card/1002808</span>
+            </a>
           </div>
-        </div>
+        </section>
 
       </div>
     </div>
@@ -321,62 +332,50 @@ h1{white-space:nowrap;line-height:.9;font-weight:400}
 </div>
 
 <script>
-const $ = id => document.getElementById(id);
-
-/* Деления прицельного кольца */
 (function(){
-  const g = $('ticks'), NS = 'http://www.w3.org/2000/svg';
-  for (let i = 0; i < 36; i++){
-    const a = (i * 10 - 90) * Math.PI / 180, major = i % 9 === 0;
-    const r1 = major ? 154 : 164, r2 = 174;
-    const l = document.createElementNS(NS, 'line');
-    l.setAttribute('x1', (210 + r1 * Math.cos(a)).toFixed(1));
-    l.setAttribute('y1', (210 + r1 * Math.sin(a)).toFixed(1));
-    l.setAttribute('x2', (210 + r2 * Math.cos(a)).toFixed(1));
-    l.setAttribute('y2', (210 + r2 * Math.sin(a)).toFixed(1));
-    l.setAttribute('stroke', major ? 'rgba(203,255,62,.9)' : 'rgba(237,242,228,.32)');
-    l.setAttribute('stroke-width', major ? 2 : 1);
-    g.appendChild(l);
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* Деления прицельного кольца */
+  var NS = 'http://www.w3.org/2000/svg', g = $('ticks');
+  if (g){
+    for (var i = 0; i < 36; i++){
+      var a = (i * 10 - 90) * Math.PI / 180, major = i % 9 === 0;
+      var r1 = major ? 154 : 163, r2 = major ? 174 : 170;
+      var l = document.createElementNS(NS, 'line');
+      l.setAttribute('x1', (210 + r1 * Math.cos(a)).toFixed(1));
+      l.setAttribute('y1', (210 + r1 * Math.sin(a)).toFixed(1));
+      l.setAttribute('x2', (210 + r2 * Math.cos(a)).toFixed(1));
+      l.setAttribute('y2', (210 + r2 * Math.sin(a)).toFixed(1));
+      l.setAttribute('stroke', major ? 'rgba(203,255,62,.85)' : 'rgba(237,242,228,.3)');
+      l.setAttribute('stroke-width', major ? '2' : '1');
+      g.appendChild(l);
+    }
   }
+
+  /* «Живая» телеметрия */
+  var R = function(a, b){ return a + Math.random() * (b - a); };
+  function tick(){
+    var e;
+    if (e = $('vAlt'))  e.textContent = R(11.4, 13.6).toFixed(1) + ' M';
+    if (e = $('vBat'))  e.textContent = Math.round(R(95, 100)) + ' %';
+    if (e = $('vSat'))  e.textContent = Math.round(R(12, 16));
+    if (e = $('vSpd'))  e.textContent = Math.round(R(66, 96)) + ' KM/H';
+    if (e = $('vRssi')) e.textContent = '-' + Math.round(R(48, 62)) + ' DB';
+    if (e = $('vPwr'))  e.textContent = Math.round(R(180, 300)) + ' MW';
+  }
+  tick(); setInterval(tick, 1200);
+
+  /* Вписывание листа в окно (только предпросмотр) */
+  var frame = $('frame'), scaler = $('scaler'), BASE = 1123;
+  function fit(){
+    var w = Math.min(document.documentElement.clientWidth - 36, BASE), s = w / BASE;
+    scaler.style.transform = 'scale(' + s + ')';
+    frame.style.width = w + 'px';
+    frame.style.height = (794 * s) + 'px';
+  }
+  window.addEventListener('resize', fit); fit();
 })();
-
-/* «Живая» телеметрия по бокам дрона */
-const T = {alt:$('vAlt'), bat:$('vBat'), sat:$('vSat'), spd:$('vSpd'), rssi:$('vRssi'), pwr:$('vPwr')};
-const fmt = (a, b, d = 0) => (a + Math.random() * (b - a)).toFixed(d);
-function tick(){
-  T.alt.textContent  = fmt(11.4, 13.6, 1) + ' M';
-  T.bat.textContent  = Math.round(fmt(96.4, 100)) + ' %';
-  T.sat.textContent  = Math.round(fmt(12, 16));
-  T.spd.textContent  = Math.round(fmt(66, 96)) + ' KM/H';
-  T.rssi.textContent = Math.round(fmt(88, 99)) + ' %';
-  T.pwr.textContent  = Math.round(fmt(200, 300)) + ' MW';
-}
-tick(); setInterval(tick, 1100);
-
-/* Лёгкий параллакс дрона за курсором */
-const sheetEl = $('sheet'), svg = $('droneSvg');
-let tx = 0, ty = 0, cx = 0, cy = 0;
-sheetEl.addEventListener('mousemove', e => {
-  const r = sheetEl.getBoundingClientRect();
-  tx = ((e.clientX - r.left) / r.width  - .5) * 12;
-  ty = ((e.clientY - r.top)  / r.height - .5) * 10;
-});
-sheetEl.addEventListener('mouseleave', () => { tx = ty = 0; });
-(function loop(){
-  cx += (tx - cx) * .07; cy += (ty - cy) * .07;
-  svg.style.transform = `translate(${cx.toFixed(2)}px,${cy.toFixed(2)}px)`;
-  requestAnimationFrame(loop);
-})();
-
-/* Вписывание листа в окно */
-const frame = $('frame'), scaler = $('scaler');
-function fit(){
-  const w = Math.min(window.innerWidth - 36, 1123), s = w / 1123;
-  scaler.style.transform = `scale(${s})`;
-  frame.style.width  = w + 'px';
-  frame.style.height = (794 * s) + 'px';
-}
-window.addEventListener('resize', fit); fit();
 </script>
 </body>
 </html>
